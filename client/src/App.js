@@ -6,7 +6,7 @@ function App() {
   useEffect(()=>{
     fetch('/tutorials')
     .then(res=> res.json())
-    .then(console.log)
+    .then(data=>console.log(data))
   })
   return (
     <div className="App">
