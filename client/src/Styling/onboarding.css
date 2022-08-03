@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+
+
+
+
 .logo{
     width: 4rem;
 }
@@ -7,6 +13,24 @@
 {
     font-family: 'Nunito Sans', sans-serif;
     color: #792d78;
+}
+
+.onboard-title{
+    font-family: 'Montserrat', sans-serif;
+
+}
+.onboard-statement{
+    font-family: 'Nunito Sans', sans-serif;
 
 
+}
+
+.Onboardimg
+{
+    width: 35rem;
+    height: 35rem;
+}
+
+.onboarding-statement2 {
+    text-align: center;
 }
