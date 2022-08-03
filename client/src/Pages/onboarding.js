@@ -7,9 +7,13 @@ import Nav from 'react-bootstrap/Nav'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import onboardingImg from '../Assets/onboardimg1.png'
+import Button from 'react-bootstrap/Button'
+import { useNavigate } from 'react-router-dom'
 
 
 const Onboarding = () => {
+    const navigate = useNavigate()
+
   return (
     <>
         <Navbar>
@@ -39,6 +43,8 @@ const Onboarding = () => {
                         ZanBase is a comprehensive master data management product <br/>that offers an intriguing list of capabilities for many use cases.<br/>
                         The solution offers auto generation of PV's ,Task Scheduling service,<br/> Targets/Goals Board and Tutorials.  
                     </p>
+
+                    <Button onClick={()=>navigate('/signup')} id='getstartbtn' className='d-flex justify-content-start mt-4'>Get Started</Button>
                     
                     
                 </Col>

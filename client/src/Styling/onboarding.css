@@ -34,3 +34,15 @@
 .onboarding-statement2 {
     text-align: center;
 }
+
+#getstartbtn
+{
+    background-color: #792d78;
+    font-family: 'Nunito Sans', sans-serif;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 6px 35px 6px 35px;
+
+
+}
