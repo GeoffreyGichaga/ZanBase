@@ -44,6 +44,10 @@
     font-family: 'Nunito Sans', sans-serif;
     color: #792d78;
     text-decoration: none;
+}
+
+.alink:hover{
+    color: #FF4397;
 
 
 }

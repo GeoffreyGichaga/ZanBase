@@ -6,6 +6,7 @@ import Onboarding from './Pages/onboarding';
 import Login from './Pages/login'
 import Signup from './Pages/signup'
 import Cookies from './Pages/cookiesinfo'
+import Dashboard from './Pages/Dashboard';
 
 
 
@@ -17,6 +18,8 @@ function App() {
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/cookies' element={<Cookies/>}/>
+        <Route path='/dashboard' element={<Dashboard/>}/>
+
         
       </Routes>
       
