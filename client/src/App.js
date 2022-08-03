@@ -1,29 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
-import {useEffect} from 'react'
+import React from 'react';
+import Onboardingnav from './Components/Onboardingnav';
 
 function App() {
-  useEffect(()=>{
-    fetch('/tutorials')
-    .then(res=> res.json())
-    .then(data=>console.log(data))
-  })
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React Today now
-        </a>
-      </header>
+      <Onboardingnav/>
+      
     </div>
   );
 }
