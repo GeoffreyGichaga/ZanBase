@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+/*     font-family: 'Nunito Sans', sans-serif;
+ */
+
+.signup-title{
+    font-family: 'Montserrat', sans-serif;
+
+
+}
+
+.inputlogo{
+    width: 1rem;
+}
+#firstnameinput,#emailinput,#passwordinput{
+    background-color: transparent;
+}
+.inputspace{
+    font-family: 'Nunito Sans', sans-serif;
+
+}
