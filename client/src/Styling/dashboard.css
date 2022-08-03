@@ -8,9 +8,30 @@
 
 
 
+
+
 .sidepanel{
     background-color: #4B214B;
     width: 17%;
     height: 100vh;
     border-radius: 0px 5px 5px 0px;
+}
+
+.dashpanel{
+    background-color: #fff6ff;
+}
+
+.zanlogo{
+    width: auto;
+    height: 5rem;
+}
+
+.menu-icons{
+    width: auto;
+    height: 1.5rem;
+}
+.menutext{
+    color: white;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 18px;
 }
