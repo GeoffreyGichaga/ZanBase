@@ -61,6 +61,7 @@ const signup = () => {
                 
               </InputGroup>
               
+              
 
             </Row>
 
@@ -80,6 +81,22 @@ const signup = () => {
                   type='email'
                 />
               </InputGroup>
+
+              <InputGroup as={Col} className=" mb-3">
+                  
+
+                <Form.Control
+                  className='inputspace'
+                  placeholder="Username"
+                  aria-label="Username"
+                  aria-describedby="usernameinput"
+                  type='email'
+                />
+              </InputGroup>
+
+              <Form.Text muted className='orgtext d-flex justify-content-start'>
+                @zanaafrica.org or @zanaafrica.com
+              </Form.Text>
 
 
             
@@ -121,14 +138,16 @@ const signup = () => {
 
 
 
-            <Form.Text muted>
-                Please enter your work email
-              </Form.Text>
+            
             
 
-              <Button variant="primary" type="submit">
+              <Button id='submitbtn' variant="primary" type="submit">
                 Submit
               </Button>
+
+              <div className='mt-3'>
+                <p className='logintext'>Already Registered? <a className='alink' href='/login'>Login</a></p>
+              </div>
           </Form>
 
 

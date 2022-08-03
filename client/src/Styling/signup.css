@@ -20,3 +20,30 @@
     font-family: 'Nunito Sans', sans-serif;
 
 }
+
+.orgtext{
+    font-family: 'Nunito Sans', sans-serif;
+
+
+}
+
+#submitbtn{
+    background-color: #792d78;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Nunito Sans', sans-serif;
+    padding: 5px 50px 5px 50px;
+
+}
+
+.logintext{
+    font-family: 'Nunito Sans', sans-serif;
+
+}
+.alink{
+    font-family: 'Nunito Sans', sans-serif;
+    color: #792d78;
+    text-decoration: none;
+
+
+}
