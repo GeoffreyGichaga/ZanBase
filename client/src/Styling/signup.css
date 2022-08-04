@@ -27,7 +27,7 @@
 
 }
 
-#submitbtn{
+#submitbtn,#updatebtn{
     background-color: #792d78;
     border: none;
     border-radius: 5px;

@@ -42,30 +42,34 @@ const Profile = () => {
             </Card>
             
 
-            <Form>
+            <Form id='paymentdetails' className='p-3 mt-3'>
+                <p className='payment-title text-start'>Payment Details</p>
 
                 <Row className="mb-3 mt-5">
                     <InputGroup as={Col} className=" mb-3">
-                        <InputGroup.Text  id="firstnameinput">
+                        <InputGroup.Text  id="accnameinput">
                             <img className='inputlogo' src={user} alt={"userimg"}/>
                         </InputGroup.Text>
 
                         <Form.Control
                         className='inputspace'
-                        placeholder="FirstName"
-                        aria-label="FirstName"
-                        aria-describedby="usernameinput"
+                        placeholder="Name on Account"
+                        aria-label="Name on Account"
+                        aria-describedby="accnameinput"
                         />
                     </InputGroup>
 
 
                     <InputGroup as={Col} className=" mb-3">
+                        <InputGroup.Text  id="banknameinput">
+                            <img className='inputlogo' src={user} alt={"userimg"}/>
+                        </InputGroup.Text>
                         
                         <Form.Control
                         className='inputspace'
-                        placeholder="LastName"
-                        aria-label="LastName"
-                        aria-describedby="lastname"
+                        placeholder="Bank Name"
+                        aria-label="banknameinput"
+                        aria-describedby="banknameinput"
                         />
                         
                     </InputGroup>
@@ -78,26 +82,29 @@ const Profile = () => {
 
                 <Row className="mb-3 mt-5">
                     <InputGroup as={Col} className=" mb-3">
-                        <InputGroup.Text  id="firstnameinput">
+                        <InputGroup.Text  id="AccountNo">
                             <img className='inputlogo' src={user} alt={"userimg"}/>
                         </InputGroup.Text>
 
                         <Form.Control
                         className='inputspace'
-                        placeholder="FirstName"
-                        aria-label="FirstName"
+                        placeholder="Account #"
+                        aria-label="AccountNo"
                         aria-describedby="usernameinput"
                         />
                     </InputGroup>
 
 
                     <InputGroup as={Col} className=" mb-3">
+                        <InputGroup.Text  id="BankCode">
+                            <img className='inputlogo' src={user} alt={"userimg"}/>
+                        </InputGroup.Text>
                         
                         <Form.Control
                         className='inputspace'
-                        placeholder="LastName"
-                        aria-label="LastName"
-                        aria-describedby="lastname"
+                        placeholder="Bank Code"
+                        aria-label="BankCode"
+                        aria-describedby="BankCode"
                         />
                         
                     </InputGroup>
@@ -113,26 +120,29 @@ const Profile = () => {
 
                 <Row className="mb-3 mt-5">
                     <InputGroup as={Col} className=" mb-3">
-                        <InputGroup.Text  id="firstnameinput">
+                        <InputGroup.Text  id="branchcode">
                             <img className='inputlogo' src={user} alt={"userimg"}/>
                         </InputGroup.Text>
 
                         <Form.Control
                         className='inputspace'
-                        placeholder="FirstName"
-                        aria-label="FirstName"
-                        aria-describedby="usernameinput"
+                        placeholder="Branch Code"
+                        aria-label="branchcode"
+                        aria-describedby="branchcodeinput"
                         />
                     </InputGroup>
 
 
                     <InputGroup as={Col} className=" mb-3">
+                        <InputGroup.Text  id="Tel">
+                            <img className='inputlogo' src={user} alt={"userimg"}/>
+                        </InputGroup.Text>
                         
                         <Form.Control
                         className='inputspace'
-                        placeholder="LastName"
-                        aria-label="LastName"
-                        aria-describedby="lastname"
+                        placeholder="Telephone #"
+                        aria-label="Tel"
+                        aria-describedby="Tel"
                         />
                         
                     </InputGroup>
@@ -140,58 +150,20 @@ const Profile = () => {
                 
 
                 </Row>
-                <Row className="mb-3 mt-5">
-                    <InputGroup as={Col} className=" mb-3">
-                        <InputGroup.Text  id="firstnameinput">
-                            <img className='inputlogo' src={user} alt={"userimg"}/>
-                        </InputGroup.Text>
-
-                        <Form.Control
-                        className='inputspace'
-                        placeholder="FirstName"
-                        aria-label="FirstName"
-                        aria-describedby="usernameinput"
-                        />
-                    </InputGroup>
-
-
-                    <InputGroup as={Col} className=" mb-3">
-                        
-                        <Form.Control
-                        className='inputspace'
-                        placeholder="LastName"
-                        aria-label="LastName"
-                        aria-describedby="lastname"
-                        />
-                        
-                    </InputGroup>
-                
                 
 
-                </Row>
-
-            
 
 
-
-            
-
-
-
-            
-
-
-
-            
-            
-
-              <Button id='submitbtn' variant="primary" type="submit">
+              <div>
+                  <Button id='updatebtn' variant="primary" type="submit">
+                Update
+              </Button>
+              <Button id='submitbtn' className='ms-3' variant="primary" type="submit">
                 Submit
               </Button>
-
-              <div className='mt-3'>
-                <p className='logintext'>Already Registered? <a className='alink' href='/login'>Login</a></p>
               </div>
+
+              
           </Form>
 
         </Col>
