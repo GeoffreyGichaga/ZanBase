@@ -103,6 +103,41 @@ const signup = () => {
         
             </Row>
 
+            <Row className="mb-3 mt-5 d-flex">
+              <Col>
+                <Form.Select>
+                  <option>Select Role</option>
+                  <option value="1">Intern</option>
+                  <option value="">Manager</option>
+                  <option value="">Consultant</option>
+                  <option value="">Social media Manager </option>
+
+                </Form.Select>
+              </Col>
+
+              <Col>
+                <Form.Select>
+                  <option>Select Supervisor</option>
+                  <option value="1">Angie Akweyu</option>
+                  <option value="">Oliver Tambo</option>
+                  <option value="">Florence Ngayo</option>
+                  <option value="">Alice</option>
+                  <option value="">Ben Shikuku</option>
+            
+
+                </Form.Select>
+              </Col>
+
+              
+              
+
+        
+
+
+            
+        
+            </Row>
+
 
 
             <Row className="mb-3 mt-5">
