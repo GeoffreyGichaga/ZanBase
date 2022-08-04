@@ -9,6 +9,7 @@ import bellnot from '../Assets/notification.png'
 import calendar from '../Assets/calendar.png'
 import TopTargets from '../Components/TopTargets'
 import CardGroup from 'react-bootstrap/CardGroup'
+import TutorialCards from '../Components/TutorialCards'
 
 
 
@@ -75,7 +76,13 @@ const Dashboard = () => {
             {/* Top Targets */}
              
             <TopTargets/>
-            {/* Top Targets */}
+            {/* End of Top Targets */}
+
+            {/* Featured Tutorials */}
+            <TutorialCards/>
+
+            {/* End of Featured Tutorials */}
+
 
  
           </Col>

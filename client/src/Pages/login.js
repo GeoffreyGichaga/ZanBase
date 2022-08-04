@@ -90,7 +90,7 @@ const Login = () => {
             
             
 
-              <Button onClick={()=>navigate('/dashboard')} id='submitbtn' variant="primary" type="submit">
+              <Button onClick={()=> navigate('/dashboard')} id='submitbtn' variant="primary" type="submit">
                 Submit
               </Button>
 
