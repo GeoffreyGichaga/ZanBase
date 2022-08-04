@@ -1,7 +1,5 @@
 import React from 'react'
 import '../Styling/SidePanel.css'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 import whitelogo from '../Assets/white-logo.png'
 import dash from '../Assets/dashboard.png'
 import user2 from '../Assets/user2.png'
@@ -17,8 +15,8 @@ import logout from '../Assets/logout.png'
 const SidePanel = () => {
   return (
     <>
-        <Row className='sidepanel'>
-            <Col className='ms-2'>
+        {/* <Row className='sidepanel'> */}
+            {/* <Col sm={12} md={6} lg={4} className='sidepanel '> */}
                 {/* Zanbase Logo */}
                 <div>
                     <img className='zanlogo mt-3' src={whitelogo} alt='zanalogo'/>
@@ -82,8 +80,8 @@ const SidePanel = () => {
                 {/* Menu Icons */}
 
 
-            </Col>
-        </Row>
+            {/* </Col> */}
+        {/* </Row> */}
     </>
   )
 }
