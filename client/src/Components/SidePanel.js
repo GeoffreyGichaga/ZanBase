@@ -13,10 +13,8 @@ import bell from '../Assets/bell.png'
 import checklist from '../Assets/checklist.png'
 import user3 from '../Assets/user3.png'
 import logout from '../Assets/logout.png'
-import {useNavigate} from 'react-router-dom'
 
 const SidePanel = () => {
-    const navigate = useNavigate()
   return (
     <>
         <Row className='sidepanel'>
@@ -34,42 +32,42 @@ const SidePanel = () => {
 
                 <div className='d-flex mt-3'>
                     <img className='menu-icons' src={user2} alt='Dash'/>
-                    <a href='/dashboard' className='menutext ms-3 mt-1'>Profile</a>
+                    <a href='/profile' className='menutext ms-3 mt-1'>Profile</a>
                 </div>
 
                 <div className='d-flex mt-4'>
                     <img className='menu-icons' src={user3} alt='Dash'/>
-                    <a href='/dashboard' className='menutext ms-3 mt-1'>Attendance Register</a>
+                    <a href='/attendance-register' className='menutext ms-3 mt-1'>Attendance Register</a>
                 </div>
 
                 <div className='d-flex mt-3'>
                     <img className='menu-icons' src={files} alt='Dash'/>
-                    <a href='/dashboard' className='menutext ms-3 mt-1'>PV's</a>
+                    <a href='/pv' className='menutext ms-3 mt-1'>PV's</a>
                 </div>
 
                 <div className='d-flex mt-4'>
                     <img className='menu-icons' src={checklist} alt='Dash'/>
-                    <a href='/dashboard' className='menutext ms-3 mt-1'>Tasks</a>
+                    <a href='/tasks' className='menutext ms-3 mt-1'>Tasks</a>
                 </div>
 
                 <div className='d-flex mt-4'>
                     <img className='menu-icons' src={bell} alt='Dash'/>
-                    <a href='/dashboard' className='menutext ms-3 mt-1'>Messages</a>
+                    <a href='/messages' className='menutext ms-3 mt-1'>Messages</a>
                 </div>
 
                 <div className='d-flex mt-4'>
                     <img className='menu-icons' src={clipboards} alt='Dash'/>
-                    <a href='/dashboard' className='menutext ms-3 mt-1'>Targets Board</a>
+                    <a href='/targetsboard' className='menutext ms-3 mt-1'>Targets Board</a>
                 </div>
 
                 <div className='d-flex mt-4'>
                     <img className='menu-icons' src={graduationhat} alt='Dash'/>
-                    <a href='/dashboard' className='menutext ms-3 mt-1'>Tutorials</a>
+                    <a href='/tutorials' className='menutext ms-3 mt-1'>Tutorials</a>
                 </div>
 
                 <div className='d-flex mt-4'>
                     <img className='menu-icons' src={information} alt='Dash'/>
-                    <a href='/dashboard' className='menutext ms-3 mt-1'>Help</a>
+                    <a href='/help' className='menutext ms-3 mt-1'>Help</a>
                 </div>
 
                 <hr className='hrline mt-4'/>

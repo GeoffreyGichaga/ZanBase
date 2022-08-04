@@ -14,7 +14,7 @@ import Messages from './Pages/Messages'
 import TargetsBoard from './Pages/TargetsBoard'
 import Tutorials from './Pages/Tutorials'
 import Help from './Pages/Help'
-
+import AttendanceRegister from './Pages/AttendanceRegister'
 
 function App() {
   return (
@@ -26,6 +26,7 @@ function App() {
         <Route path='/cookies' element={<Cookies/>}/>
         <Route path='/dashboard' element={<Dashboard/>}/>
         <Route path='/profile' element={<Profile/>}/>
+        <Route path='/attendance-register' element={<AttendanceRegister/>}/>
         <Route path='/pv' element={<Pv/>}/>
         <Route path='/tasks' element={<Task/>}/>
         <Route path='/messages' element={<Messages/>}/>
