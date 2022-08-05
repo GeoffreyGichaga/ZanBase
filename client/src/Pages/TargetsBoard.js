@@ -7,7 +7,6 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Accordion from 'react-bootstrap/Accordion';
 import CardGroup from 'react-bootstrap/CardGroup'
-import TargetsCard from '../Components/TargetsCard'
 import Form from 'react-bootstrap/Form';
 import '../Styling/TargtesBoard.css';
 

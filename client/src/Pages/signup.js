@@ -4,7 +4,6 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import circlemgt from '../Assets/circlemgt.png'
 import '../Styling/signup.css'
-import Alert from 'react-bootstrap/Alert'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -30,7 +29,6 @@ const Signup = () => {
   const[supervisor,setSuperVisor] = useState("")
   const[password,setPassword] = useState("")
   const[confirmPassword,setConfirmPassword] = useState("")
-  const [error,setError] = useState("")
 
 
   function handleSubmit(e){
@@ -57,14 +55,7 @@ const Signup = () => {
     })
   }
 
-  function displayErrors(){
-    return(
-      <Alert variant='danger'>
-        {error}
-      </Alert>
-    )
 
-  }
   
   return (
     <>
@@ -80,7 +71,6 @@ const Signup = () => {
       {/* Signup Form  */}
         <Col sm={12} md={6} lg={6} className='mt-5'>
           <h3 className='signup-title'>Signup</h3>
-          {displayErrors}
           <Form onSubmit={handleSubmit}>
 
             <Row className="mb-3 mt-5">
