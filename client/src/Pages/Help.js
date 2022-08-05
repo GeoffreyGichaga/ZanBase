@@ -2,45 +2,51 @@ import React from 'react'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import SidePanel from '../Components/SidePanel'
-import Card from 'react-bootstrap/Card'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+import '../Styling/Help.css'
+import HelpNav from '../Components/HelpNav'
 
 
 
 
 const Task = () => {
   return (
-    <Container fluid>
-        <Row>
-            <Col sm={12} md={6} lg={2} className='sidepanel'>
+    <>
+      <HelpNav/>
 
-                <SidePanel/>
+    <Container >
+      <Row>
+            <h4 className='help-titles text-center mt-4 mb-3'>Help Center</h4>
+            <Col className='d-flex justify-content-center' lg={12}>
+            <Form className="d-flex w-50">
+            <Form.Control
+              type="search"
+              placeholder="Search"
+              className="searchinput me-2"
+              aria-label="Search"
+              
+            />
+            <Button id='searchbtn' variant="outline-success">Search</Button>
+          </Form>
             </Col>
+      </Row>
+        <Row>
+          
+            <Col className='mt-5' >
+            
+
+            <h3 className='help-titles mt-5 text-start'>Getting Started</h3>
+            
 
 
 
-            <Col sm={12} md={6} lg={8} className='mt-5' >
-            <Card  className='infocards mt-5'>
-                <Card.Body className='d-flex justify-content-start'>
-                
-                    <span className='yellowcircle ms-2'>
-                        <h1 className='name mt-lg-0'>H</h1>
-                    </span>                    
-
-                
-
-                <Card.Text className='card-info ms-4 text-start'>
-                    <p className='fulldate'>Help </p>
-                    
-
-
-                </Card.Text>
-                </Card.Body>
-            </Card>
+          
             </Col>
         </Row>
 
     </Container>
+    </>
   )
 }
 
