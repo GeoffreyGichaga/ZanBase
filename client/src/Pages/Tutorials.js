@@ -4,11 +4,15 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import SidePanel from '../Components/SidePanel'
 import Card from 'react-bootstrap/Card'
+import CardGroup from 'react-bootstrap/CardGroup'
+import TutorialCards from '../Components/TutorialCards'
 
 
 
 
 const Task = () => {
+
+
   return (
     <Container fluid>
         <Row>
@@ -20,23 +24,28 @@ const Task = () => {
 
 
             <Col sm={12} md={6} lg={8} className='mt-5' >
-            <Card  className='infocards mt-5'>
-                <Card.Body className='d-flex justify-content-start'>
-                
-                    <span className='yellowcircle ms-2'>
-                        <h1 className='name mt-lg-0'>T</h1>
-                    </span>                    
+                <Card  className='infocards mt-5'>
+                    <Card.Body className='d-flex justify-content-start'>
+                    
+                        <span className='yellowcircle ms-2'>
+                            <h1 className='name mt-lg-0'>T</h1>
+                        </span>                    
 
-                
-
-                <Card.Text className='card-info ms-4 text-start'>
-                    <p className='fulldate'>Tutorials </p>
                     
 
+                    <Card.Text className='card-info ms-4 text-start'>
+                        <p className='fulldate'>Tutorials </p>
+                        
 
-                </Card.Text>
-                </Card.Body>
-            </Card>
+
+                    </Card.Text>
+                    </Card.Body>
+                </Card>
+
+                <CardGroup>
+                    <TutorialCards/>
+
+                </CardGroup>
             </Col>
         </Row>
 

@@ -22,6 +22,14 @@ class TutorialsController < ApplicationController
         render json: tutorial, status: :created
     end 
 
+    def destroy
+        tutorial = find_tutorial        
+        tutorial.destroy
+        head :no_content
+    end 
+
+  
+
 
 
     private 

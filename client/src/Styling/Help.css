@@ -35,6 +35,11 @@ font-family: 'Nunito Sans', sans-serif;
 .help-titles{
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
+    font-weight: 600;
+}
+
+.help-info{
+    font-family: 'Nunito Sans', sans-serif;
 
 
 }

@@ -36,12 +36,40 @@ const Task = () => {
             <Col className='mt-5' >
             
 
-            <h3 className='help-titles mt-5 text-start'>Getting Started</h3>
+            <h3 className='help-titles mt-5 text-start'>Getting started: How to get started with ZanBase</h3>
+            <p className='help-info text-start'>Step 1: <br/>Set up your account.To do this, create your account and open the dashboard Page. 
+              Click on your profile in the bottom left corner of the window to launch the account menu and select Teams.</p>
+            <p className='help-info text-start'> Step 2: <br/>
+            Update your Profile Information to enable the system generate your monthly pv's accurately
+
+              
+            </p>
+
+            <p className='help-info text-start'> Step 3: <br/>
+            Update the Attendance Registry with your daily Activities
+
+              
+            </p>
+
+
+            <p className='help-info text-start'> Step 4: <br/>
+            Confirm on the PV's Page the activities and the report posted
+              
+            </p>
+
+
+            <p className='help-info text-start'> Step 5: <br/>
+            Tutorials Page Provides you witll all essential skills you need while working whether from home/office
+              
+            </p>
             
 
 
 
           
+            </Col>
+            <Col>
+            
             </Col>
         </Row>
 
