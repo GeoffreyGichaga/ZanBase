@@ -45,7 +45,6 @@ const Signup = () => {
       password
     }
 
-    // const server = 'https://f3e24dc9-ba53-47b3-8f3d-4a27c68431d9.mock.pstmn.io'
 
     fetch('/users',{
       method: "POST",
@@ -57,7 +56,7 @@ const Signup = () => {
         navigate('/dashboard')
       }
       else{
-        res.json().then(e => setError(Object.entries(e.error)))
+        res.json().then(e => setError(Object.entries(e.error).flat()))
 
       }
     })
