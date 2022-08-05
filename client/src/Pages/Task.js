@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import SidePanel from '../Components/SidePanel'
 import Card from 'react-bootstrap/Card'
+import Accordion from 'react-bootstrap/Accordion'
 
 
 
@@ -37,6 +38,15 @@ const Task = () => {
                 </Card.Text>
                 </Card.Body>
             </Card>
+
+            <Accordion defaultActiveKey="0">
+                <Accordion.Item eventKey="0">
+                    <Accordion.Header className='accordionheaders'></Accordion.Header>
+                    <Accordion.Body>
+                        No Tasks!.....
+                     </Accordion.Body>
+                </Accordion.Item>                
+            </Accordion>
             </Col>
         </Row>
 

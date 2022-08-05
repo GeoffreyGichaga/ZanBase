@@ -1,14 +1,69 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import SidePanel from '../Components/SidePanel'
 import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
+import Accordion from 'react-bootstrap/Accordion';
+import CardGroup from 'react-bootstrap/CardGroup'
+import TargetsCard from '../Components/TargetsCard'
+import Form from 'react-bootstrap/Form';
+import '../Styling/TargtesBoard.css';
 
 
 
 
 const Task = () => {
+
+    const [title,setTitle] = useState(" ")
+    const [description,setDescription] = useState(" ")
+    
+
+    
+
+
+    function handleSubmit(e){
+        e.preventDefault()
+
+        const data = {
+            title,
+            description
+        }
+
+        fetch('/targets',{
+            method: "POST",
+            headers:{'Content-Type':'application/json'},
+            body: JSON.stringify(data)
+        })
+        .then(res=> res.json())
+        .then(data2=> console.log(data2))
+          
+    }
+
+    const [newTargets,setNewTargets] = useState([])
+
+    useEffect(()=>{
+
+        fetch('/targets')
+        .then(res => res.json())
+        .then(data => setNewTargets(data))
+
+    },[])
+
+
+    const displayTargets = newTargets.map((targs)=>(
+        <Card >
+        <Card.Body>
+            <Card.Title className="text-start">{targs.title}</Card.Title>
+            <Card.Text className='text-start' id='targetdescription'>
+            {targs.description}
+            </Card.Text>
+        </Card.Body>
+      </Card>
+
+    ))
+
   return (
     <Container fluid>
         <Row>
@@ -33,10 +88,72 @@ const Task = () => {
                     <p className='fulldate'>Targets Board </p>
                     
 
-
                 </Card.Text>
                 </Card.Body>
             </Card>
+
+            {/* Adding new Targets */}
+            <Accordion className='formaccodion'>
+                <Accordion.Item eventKey="1">
+                <Accordion.Header className='accordionheaders'>Add Targets</Accordion.Header>
+                    <Accordion.Body>
+                    <Form onSubmit={handleSubmit}>
+                        <Form.Group className="targetinput mb-3" controlId="formBasicEmail">
+                            <Form.Control onChange={(e)=> setTitle(e.target.value)} type="text" value={title} placeholder="Enter title" />
+                            
+                        </Form.Group>
+
+
+
+
+                        <Form.Group className="targetinput mb-3" controlId="exampleForm.ControlTextarea1">
+                            <Form.Control value={description} onChange={(e)=> setDescription(e.target.value)} placeholder='Description' as="textarea" rows={3} />
+                        </Form.Group>
+
+
+
+
+                        <Button id='tboardsbtn' type="submit">
+                            Submit
+                        </Button>
+                    </Form>
+            
+                    </Accordion.Body>
+                </Accordion.Item>
+
+
+            </Accordion>
+
+            {/* Adding new Targets */}
+
+
+
+
+
+            <Accordion defaultActiveKey="0">
+
+
+                <Accordion.Item eventKey="0">
+                    <Accordion.Header className='accordionheaders'>August Targets</Accordion.Header>
+                    <Accordion.Body>
+                    <CardGroup>
+                        {displayTargets}
+                    
+
+                    
+                    </CardGroup>
+                     </Accordion.Body>
+                </Accordion.Item>
+
+
+
+
+
+
+                
+            </Accordion>
+                
+            
             </Col>
         </Row>
 
