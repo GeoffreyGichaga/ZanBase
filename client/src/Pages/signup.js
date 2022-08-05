@@ -52,13 +52,8 @@ const Signup = () => {
       body: JSON.stringify(user)
     })
     .then(res => {
-      if(res.ok){
-        navigate('/dashboard')
-      }
-      else{
-        res.json().then(e => setError(Object.entries(e.error).flat()))
+      navigate('/dashboard')
 
-      }
     })
   }
 
