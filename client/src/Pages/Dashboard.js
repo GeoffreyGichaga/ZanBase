@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from "react";
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -26,6 +26,33 @@ const Dashboard = () => {
   const displayDay = week[day]
   const fullDate = `${date} / ${month}/ ${year}`
 
+  const [Targets,setTargets] = useState([])
+
+  useEffect(()=>{
+
+    fetch('/targets')
+    .then(res => res.json())
+    .then(data => setTargets(data))
+
+  },[])
+
+  const displayTopTargets = Targets.map((targs)=>(
+
+        <Card id='toptargetscard1' className='p-2'>
+            <Card.Body>
+            <Card.Title>{targs.title}</Card.Title>
+            <Card.Text>
+            {targs.description}
+                
+            </Card.Text>
+            </Card.Body>
+            <Card.Footer>
+            <small id='targets-footer1' >Last updated 3 mins ago</small>
+            </Card.Footer>
+      </Card>
+  ))
+ 
+
 
 
 
@@ -39,10 +66,10 @@ const Dashboard = () => {
               <SidePanel/>
           </Col>
 
-          <Col sm={12} md={6} lg={8} className='mt-5' >
+          <Col sm={12} md={6} lg={8} className='mt-1' >
             <CardGroup>
            
-              <Card  className='infocards mt-5'>
+              <Card  className='infocards mt-2'>
                 <Card.Body>
                   <div className='d-flex justify-content-between'>
                     <Card.Title className='card-title text-start mt-2'>{displayDay}</Card.Title>
@@ -74,8 +101,11 @@ const Dashboard = () => {
             </CardGroup>
             
             {/* Top Targets */}
-             
-            <TopTargets/>
+            <CardGroup className='targetsgroup  mt-5'>
+              {displayTopTargets}
+
+            </CardGroup>
+
             {/* End of Top Targets */}
 
             {/* Featured Tutorials */}
