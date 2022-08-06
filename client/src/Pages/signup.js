@@ -74,7 +74,7 @@ const Signup = () => {
           <Form onSubmit={handleSubmit}>
 
             <Row className="mb-3 mt-5">
-              <InputGroup as={Col} className=" mb-3">
+              <InputGroup as={Col} className="mb-3">
                   <InputGroup.Text  id="firstnameinput">
                     <img className='inputlogo' src={user} alt={"userimg"}/>
                   </InputGroup.Text>
@@ -90,14 +90,14 @@ const Signup = () => {
               </InputGroup>
 
 
-              <InputGroup as={Col} className=" mb-3">
+              <InputGroup as={Col} className="mb-3">
                 
                 <Form.Control
                   className='inputspace'
                   placeholder="LastName"
                   aria-label="LastName"
                   value={lastname}
-                  aria-describedby="lastname"
+                  aria-describedby="Lastname"
                   onChange={(e)=> setLastName(e.target.value)}
                 />
                 
@@ -141,7 +141,7 @@ const Signup = () => {
               </InputGroup>
 
               <Form.Text muted className='orgtext d-flex justify-content-start'>
-                @zanaafrica.org or @zanaafrica.com
+                abc@zanaafrica.org or abc@zanaafrica.com
               </Form.Text>
 
 

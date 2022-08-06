@@ -7,7 +7,6 @@ import SidePanel from '../Components/SidePanel'
 import Card from 'react-bootstrap/Card'
 import bellnot from '../Assets/notification.png'
 import calendar from '../Assets/calendar.png'
-import TopTargets from '../Components/TopTargets'
 import CardGroup from 'react-bootstrap/CardGroup'
 import TutorialCards from '../Components/TutorialCards'
 
