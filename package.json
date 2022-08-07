@@ -5,10 +5,9 @@
   "version": "0.1.0",
   
   "private": true,
+  
   "homepage": "https://zanbase-frontend.herokuapp.com/",
-  
-  "proxy": "https://zanbase-backend.herokuapp.com/",
-  
+    
   "dependencies": {
   
     
@@ -117,6 +116,13 @@
   
     
   ]
+  
+  },
+  
+  "devDependencies": {
+  
+    
+  "webpack-dev-server": "^4.9.3"
   
   }
 }
