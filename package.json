@@ -8,7 +8,6 @@
   
   "homepage": "https://zanbase-frontend.herokuapp.com/",
 
-  "proxy": "https://zanbase-backend.herokuapp.com/",
     
   "dependencies": {
   

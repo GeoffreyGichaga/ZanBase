@@ -29,7 +29,7 @@ const Dashboard = () => {
 
   useEffect(()=>{
     
-    fetch('/targets')
+    fetch("https://zanbase-backend.herokuapp.com/targets")
     .then(res => res.json())
     .then(data => setTargets(data))
 
