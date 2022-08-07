@@ -44,7 +44,7 @@ const Signup = () => {
     }
 
 
-    fetch("https://zanbase-backend.herokuapp.com/users",{
+    fetch('/users',{
       method: "POST",
       headers:{'Content-Type':'application/json'},
       body: JSON.stringify(user)
