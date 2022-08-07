@@ -6,7 +6,7 @@
   
   "private": true,
   
-  "proxy": "http://localhost:3000",
+  "proxy": "https://zanbase-backend.herokuapp.com/",
   
   "dependencies": {
   
@@ -48,7 +48,7 @@
   "scripts": {
   
     
-  "start": "PORT=4000 react-scripts start",
+  "start": "react-scripts start",
   
     
   "build": "react-scripts build",
