@@ -10,7 +10,7 @@ import TutorialCards from '../Components/TutorialCards'
 
 
 
-const Task = () => {
+const Tutorials = () => {
 
 
   return (
@@ -53,4 +53,4 @@ const Task = () => {
   )
 }
 
-export default Task
+export default Tutorials
