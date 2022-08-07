@@ -30,7 +30,7 @@ function App() {
         <Route path='/pv' element={<Pv/>}/>
         <Route path='/tasks' element={<Task/>}/>
         <Route path='/messages' element={<Messages/>}/>
-        <Route path='/targetsboard' element={<TargetsBoard/>}/>
+        <Route path='/targets' element={<TargetsBoard/>}/>
         <Route path='/tutorials' element={<Tutorials/>}/>
         <Route path='/help' element={<Help/>}/>
 

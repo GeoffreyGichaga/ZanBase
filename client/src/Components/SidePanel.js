@@ -55,7 +55,7 @@ const SidePanel = () => {
 
                 <div className='d-flex mt-4'>
                     <img className='menu-icons' src={clipboards} alt='Dash'/>
-                    <a href='/targetsboard' className='menutext ms-3 mt-1'>Targets Board</a>
+                    <a href='/targets' className='menutext ms-3 mt-1'>Targets Board</a>
                 </div>
 
                 <div className='d-flex mt-4'>
