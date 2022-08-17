@@ -47,6 +47,7 @@ const Signup = () => {
     try {
       let res = await fetch("https://zanbase-backend.herokuapp.com/users", 
       {
+        mode:'cors',
         method: "POST",
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify(user)
