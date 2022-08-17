@@ -9,6 +9,11 @@ class UsersController < ApplicationController
 
     end 
 
+    def show
+        current_logggedin_user = User.find(session[:user_id])
+        render json: current_logggedin_user
+    end 
+
      
 
   

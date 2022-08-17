@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   resources :targets, only: [:create,:index]
   resources :users , only: [:create,:show,:update]
   resources :tutorials
+
+  post "/login", to: "sessions#create"
+
+  get "/auth", to : "users#show"
 end
