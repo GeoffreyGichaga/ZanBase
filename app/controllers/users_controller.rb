@@ -9,10 +9,7 @@ class UsersController < ApplicationController
 
     end 
 
-    def update
-        user = user.update!(user_updates_params)
-        render json: user, status: :created
-    end 
+     
 
   
 
@@ -24,9 +21,7 @@ class UsersController < ApplicationController
         params.permit(:firstname,:lastname,:email,:username,:role,:supervisor,:password)
     end 
 
-    def user_updates_params
-        params.permit(:name_on_account,:bank_name,:account_number,:bank_code,:branch_code,:telephone_number)
-    end 
+   
 
     def render_unprocessable_entity(invalid)
         render json: {error: invalid.record.errors}, status: :unprocessable_entity

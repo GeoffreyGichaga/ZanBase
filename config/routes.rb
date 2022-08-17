@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :user_details, only: [:create,:update]
   resources :attendances
   resources :targets, only: [:create,:index]
   resources :users , only: [:create,:show,:update]

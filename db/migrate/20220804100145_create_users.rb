@@ -7,12 +7,6 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string :username
       t.string :role
       t.string :supervisor
-      t.string :name_on_account
-      t.string :bank_name
-      t.string :account_number
-      t.string :bank_code
-      t.string :branch_code
-      t.integer :telephone_number
       t.string :password_digest
 
       t.timestamps
