@@ -31,7 +31,7 @@ const Signup = () => {
   const [currentUser, setCurrentUser] = useState("")
 
 
-  let  formSubmit = async (e)=>{
+  let  formSubmit = (e)=>{
     
     e.preventDefault()
     const user = {
@@ -44,7 +44,7 @@ const Signup = () => {
       password
     }
 
-      let res = await fetch("https://zanbase-backend.herokuapp.com/users", 
+      fetch("https://zanbase-backend.herokuapp.com/users", 
       {
         method: "POST",
         headers: 
@@ -53,17 +53,19 @@ const Signup = () => {
           
           },
         body: JSON.stringify(user)
-      });
-
-
-      let resJson = await res.json()
-      if (resJson.status === 201)
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.status === 201)
       {
-        setCurrentUser(resJson)
+        setCurrentUser(data)
         return <Dashboard currentLoggedUser={currentUser.summary}/>
         
 
       }
+      }
+      )
+      
    
 
   
