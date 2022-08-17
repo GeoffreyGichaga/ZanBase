@@ -57,9 +57,8 @@ const Signup = () => {
       if (res.status === 200)
       {
         setCurrentUser(resJson)
-        return(
-          <Dashboard currentLoggedUser={currentUser.summmary}/>
-        )
+        return <Dashboard currentLoggedUser={currentUser.summmary}/>
+        
 
       }
     } catch(err){
