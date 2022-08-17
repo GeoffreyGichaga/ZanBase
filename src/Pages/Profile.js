@@ -14,35 +14,35 @@ import user from '../Assets/user.png'
 
 const Profile = () => {
 
-    let formSubmit = async (e)=>{
+    // let formSubmit = async (e)=>{
 
-        e.preventDefault()
+    //     e.preventDefault()
 
-        const userDetails = {
+    //     const userDetails = {
             
-        }
+    //     }
 
-        try {
-            let res = await fetch("https://zanbase-backend.herokuapp.com/user_details", 
-            {
-              method: "POST",
-              headers: {'Content-Type':'application/json'},
-              body: JSON.stringify(user)
-            });
+    //     try {
+    //         let res = await fetch("https://zanbase-backend.herokuapp.com/user_details", 
+    //         {
+    //           method: "POST",
+    //           headers: {'Content-Type':'application/json'},
+    //           body: JSON.stringify(user)
+    //         });
       
       
-            let resJson = await res.json()
-            if (res.status === 201)
-            {
-              setCurrentUser(resJson)
-              return <Dashboard currentLoggedUser={currentUser.summary}/>
+    //         let resJson = await res.json()
+    //         if (res.status === 201)
+    //         {
+    //           setCurrentUser(resJson)
+    //           return <Dashboard currentLoggedUser={currentUser.summary}/>
               
       
-            }
-          } catch(err){
-            console.log(err);
-          }
-    }
+    //         }
+    //       } catch(err){
+    //         console.log(err);
+    //       }
+    // }
 
 
   return (
