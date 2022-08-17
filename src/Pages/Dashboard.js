@@ -9,11 +9,25 @@ import bellnot from '../Assets/notification.png'
 import calendar from '../Assets/calendar.png'
 import CardGroup from 'react-bootstrap/CardGroup'
 import TutorialCards from '../Components/TutorialCards'
+import Login from './Login'
 
 
 
 
-const Dashboard = ({currentLoggedUser}) => {
+const Dashboard = () => {
+
+  const [currentLoggedUser,setCurrentLoggedUser] = useState('')
+
+  useEffect(() => {
+    fetch("https://zanbase-backend.herokuapp.com/auth")
+    .then(res =>{
+      if (res.ok){
+        res.json().then(user => setCurrentLoggedUser(user))
+      }
+    })
+    
+  }, [])
+  if(!currentLoggedUser) return <Login/>
 
   const week = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
   const current = new Date()

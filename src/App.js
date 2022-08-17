@@ -3,7 +3,7 @@ import { Route,Routes } from 'react-router-dom';
 
 import './App.css';
 import Onboarding from './Pages/onboarding';
-import Login from './Pages/login'
+import Login from './Pages/Login'
 import Signup from './Pages/Signup'
 import Cookies from './Pages/cookiesinfo'
 import Dashboard from './Pages/Dashboard';

@@ -19,6 +19,8 @@ import Dashboard from '../Pages/Dashboard'
 
 const Signup = () => {
 
+  
+
 
   const[firstName,setFirstName] = useState("")
   const[lastname,setLastName] = useState("")
@@ -58,8 +60,7 @@ const Signup = () => {
       .then(data => {
         if (data.status === 201)
       {
-        setCurrentUser(data)
-        return <Dashboard currentLoggedUser={currentUser.summary}/>
+        return <Dashboard/>
         
 
       }
