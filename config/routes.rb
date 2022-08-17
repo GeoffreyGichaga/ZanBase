@@ -8,5 +8,5 @@ Rails.application.routes.draw do
 
   post "/login", to: "sessions#create"
 
-  get "/auth", to : "users#show"
+  get "/auth", to: "users#show"
 end
