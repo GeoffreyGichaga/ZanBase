@@ -18,16 +18,6 @@ const Dashboard = () => {
 
   const [currentLoggedUser,setCurrentLoggedUser] = useState('')
 
-  useEffect(() => {
-    fetch("https://zanbase-backend.herokuapp.com/auth")
-    .then(res =>{
-      if (res.ok){
-        res.json().then(user => setCurrentLoggedUser(user))
-      }
-    })
-    
-  }, [])
-  if(!currentLoggedUser) return <Login/>
 
   const week = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
   const current = new Date()
@@ -49,6 +39,17 @@ const Dashboard = () => {
     .then(data => setTargets(data))
 
   },[])
+
+  useEffect(() => {
+    fetch("https://zanbase-backend.herokuapp.com/auth")
+    .then(res =>{
+      if (res.ok){
+        res.json().then(user => setCurrentLoggedUser(user))
+      }
+    })
+    
+  }, [])
+  if(!currentLoggedUser) return <Login/>
 
   const displayTopTargets = Targets.map((targs)=>(
 
