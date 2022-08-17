@@ -172,10 +172,10 @@ const Signup = () => {
               <Col>
                 <Form.Select value={role} onChange={(e)=> setRole(e.target.value)}>
                   <option>Select Role</option>
-                  <option value="1">Intern</option>
-                  <option value="2">Manager</option>
-                  <option value="3">Consultant</option>
-                  <option value="4">Social media Manager </option>
+                  <option value="intern">Intern</option>
+                  <option value="manager">Manager</option>
+                  <option value="consultant">Consultant</option>
+                  <option value="sc_manager">Social media Manager </option>
 
                 </Form.Select>
               </Col>
@@ -183,11 +183,11 @@ const Signup = () => {
               <Col>
                 <Form.Select value={supervisor} onChange={(e)=> setSuperVisor(e.target.value)}>
                   <option>Select Supervisor</option>
-                  <option value="1">Angie Akweyu</option>
-                  <option value="2">Oliver Tambo</option>
-                  <option value="3">Florence Ngayo</option>
-                  <option value="4">Jane Nthanze</option>
-                  <option value="5">Ben Shikuku</option>
+                  <option value="Angie">Angie Akweyu</option>
+                  <option value="Oliver">Oliver Tambo</option>
+                  <option value="Florence">Florence Ngayo</option>
+                  <option value="Jane">Jane Nthanze</option>
+                  <option value="Ben">Ben Shikuku</option>
             
 
                 </Form.Select>
