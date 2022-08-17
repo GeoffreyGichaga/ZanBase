@@ -10,7 +10,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import user from '../Assets/user.png'
 import emailpic from '../Assets/email.png'
 import padlock from '../Assets/padlock.png'
-import {useNavigate} from 'react-router-dom'
+import Dashboard from '../Pages/Dashboard'
 
 
 
@@ -18,7 +18,6 @@ import {useNavigate} from 'react-router-dom'
 
 
 const Signup = () => {
-  const navigate = useNavigate()
 
 
   const[firstName,setFirstName] = useState("")
@@ -29,9 +28,11 @@ const Signup = () => {
   const[supervisor,setSuperVisor] = useState("")
   const[password,setPassword] = useState("")
   const[confirmPassword,setConfirmPassword] = useState("")
+  const [currentUser, setCurrentUser] = useState("")
 
 
-  function handleSubmit(e){
+  let  formSubmit = async (e)=>{
+    
     e.preventDefault()
     const user = {
       firstName,
@@ -43,17 +44,35 @@ const Signup = () => {
       password
     }
 
+    try {
+      let res = await fetch("https://zanbase-backend.herokuapp.com/users", 
+      {
+        method: "POST",
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(user)
+      });
 
-    fetch("https://zanbase-backend.herokuapp.com/users",{
-      method: "POST",
-      headers:{'Content-Type':'application/json'},
-      body: JSON.stringify(user)
-    })
-    .then(res => {
-      navigate('/dashboard')
 
-    })
-  }
+      let resJson = await res.json()
+      if (res.status === 200)
+      {
+        setCurrentUser(resJson)
+        return(
+          <Dashboard currentLoggedUser={currentUser.summmary}/>
+        )
+
+      }
+    } catch(err){
+      console.log(err);
+    }
+
+  
+    
+  
+
+
+    
+  };
 
 
   
@@ -71,7 +90,7 @@ const Signup = () => {
       {/* Signup Form  */}
         <Col sm={12} md={6} lg={6} className='mt-5'>
           <h3 className='signup-title'>Signup</h3>
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={formSubmit}>
 
             <Row className="mb-3 mt-5">
               <InputGroup as={Col} className="mb-3">

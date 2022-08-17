@@ -13,7 +13,7 @@ import TutorialCards from '../Components/TutorialCards'
 
 
 
-const Dashboard = () => {
+const Dashboard = ({currentLoggedUser}) => {
 
   const week = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
   const current = new Date()
@@ -24,6 +24,7 @@ const Dashboard = () => {
 
   const displayDay = week[day]
   const fullDate = `${date} / ${month}/ ${year}`
+
 
   const [Targets,setTargets] = useState([])
 
@@ -80,6 +81,7 @@ const Dashboard = () => {
                     <p className='fulldate ms-3'>{fullDate}</p>
                   </Card.Text>
                 </Card.Body>
+                <Card.Footer className='text-start'>Hello! {currentLoggedUser}</Card.Footer>
               </Card>
 
               <Card className='infocards mt-5 ms-lg-3'>
