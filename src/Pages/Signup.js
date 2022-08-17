@@ -54,10 +54,10 @@ const Signup = () => {
 
 
       let resJson = await res.json()
-      if (res.status === 200)
+      if (res.status === 201)
       {
         setCurrentUser(resJson)
-        return <Dashboard currentLoggedUser={currentUser.summmary}/>
+        return <Dashboard currentLoggedUser={currentUser.summary}/>
         
 
       }
