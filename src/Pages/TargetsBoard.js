@@ -98,7 +98,8 @@ const Task = () => {
                     <Accordion.Body>
                     <Form onSubmit={handleSubmit}>
                         <Form.Group className="targetinput mb-3" controlId="formBasicEmail">
-                            <Form.Control onChange={(e)=> setTitle(e.target.value)} type="text" value={title} placeholder="Enter title" />
+                            <Form.Label>Enter Tittle</Form.Label>
+                            <Form.Control onChange={(e)=> setTitle(e.target.value)} type="text" value={title} placeholder= "Enter title" />
                             
                         </Form.Group>
 
@@ -106,6 +107,8 @@ const Task = () => {
 
 
                         <Form.Group className="targetinput mb-3" controlId="exampleForm.ControlTextarea1">
+                        <Form.Label>Enter Description</Form.Label>
+
                             <Form.Control value={description} onChange={(e)=> setDescription(e.target.value)} placeholder='Description' as="textarea" rows={3} />
                         </Form.Group>
 
