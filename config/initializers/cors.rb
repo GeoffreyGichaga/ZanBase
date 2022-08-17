@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
    allow do
-    origins "*"
+    origins "https://zanbase-backend.herokuapp.com/"
 
      resource "*",
        headers: :any,
