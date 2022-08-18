@@ -28,19 +28,19 @@ const Dashboard = () => {
   const fullDate = `${date} / ${month}/ ${year}`
 
 
-  const [Targets,setTargets] = useState([])
+  const [allTargets,setAllTargets] = useState([])
 
   useEffect(()=>{
     
     fetch("https://zanbase-backend.herokuapp.com/targets")
     .then(res => res.json())
-    .then(data => setTargets(data))
+    .then(data => setAllTargets(data))
 
   },[])
 
   
 
-  const displayTopTargets = Targets.map((targs)=>(
+  const displayTopTargets = allTargets.map((targs)=>(
 
         <Card id='toptargetscard1' className='p-2'>
             <Card.Body>
