@@ -38,20 +38,20 @@ const Signup = () => {
 
 
 
-  let  formSubmit = (e)=>{
+  // let  formSubmit = (e)=>{
 
 
     
-    e.preventDefault()
-    const user = {
-      firstName,
-      lastname,
-      email,
-      username,
-      role,
-      supervisor,
-      password
-    }
+    // e.preventDefault()
+    // const user = {
+    //   firstName,
+    //   lastname,
+    //   email,
+    //   username,
+    //   role,
+    //   supervisor,
+    //   password
+    // }
 
       // fetch("https://zanbase-backend.herokuapp.com/users", 
       // {
@@ -77,7 +77,9 @@ const Signup = () => {
 
       let formSubmit = async (e) => {
 
+
         e.preventDefault();
+        
         try {
           let res = await fetch("https://zanbase-backend.herokuapp.com/users", {
             method: "POST",
@@ -114,7 +116,7 @@ const Signup = () => {
 
 
     
-  };
+  // };
 
 
   
