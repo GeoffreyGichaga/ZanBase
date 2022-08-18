@@ -9,7 +9,6 @@ import bellnot from '../Assets/notification.png'
 import calendar from '../Assets/calendar.png'
 import CardGroup from 'react-bootstrap/CardGroup'
 import TutorialCards from '../Components/TutorialCards'
-import {useState,useEffect} from 'react'
 
 
 
