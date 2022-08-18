@@ -55,15 +55,15 @@ const Signup = () => {
           },
         body: JSON.stringify(user)
       })
-      .then(res => res.json())
-      .then(data => {
-        if (data.status === 201)
-      {
-        return <Dashboard/>
-        
-
-      }
-      }
+      .then(res => {
+        if(res.created){
+          navigate('/dashboard')
+        }
+  
+          else{
+            res.json().then( err => setErrors(Object.entries(err.error)))  
+          }
+        }
       )
       
    
