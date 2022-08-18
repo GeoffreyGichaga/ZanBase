@@ -82,7 +82,7 @@ const Login = () => {
                   aria-describedby="usernameinput"
                   type='text'
                   value={usernameData}
-                  onChange={setUsernameData}
+                  onChange={(e) => setUsernameData(e.target.value)}
 
                 />
               </InputGroup>
@@ -113,7 +113,7 @@ const Login = () => {
                   aria-describedby="passwordinput"
                   type='password'
                   value={passwordData}
-                  onChange={setPasswordData}
+                  onChange={(e) => setPasswordData(e.target.value)}
                 />
               </InputGroup>
 
