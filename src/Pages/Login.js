@@ -24,12 +24,7 @@ const Login = () => {
 
     e.preventDefault()
 
-    userInfo = {
-      usernameData,
-      passwordData
-      
-
-    }
+  
     fetch("https://zanbase-backend.herokuapp.com/login",{
       method: "POST",
       headers: 
@@ -37,7 +32,7 @@ const Login = () => {
             'Content-Type':'application/json'
           
           },
-        body: JSON.stringify(userInfo)
+        body: JSON.stringify(usernameData,passwordData)
     })
     .then(res => res.json())
     .then(data=>{
