@@ -10,7 +10,8 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import user from '../Assets/user.png'
 import emailpic from '../Assets/email.png'
 import padlock from '../Assets/padlock.png'
-import Dashboard from '../Pages/Dashboard'
+import { useNavigate } from 'react-router-dom'
+
 
 
 
@@ -18,6 +19,9 @@ import Dashboard from '../Pages/Dashboard'
 
 
 const Signup = () => {
+
+  const navigate = useNavigate()
+
 
   
 
@@ -33,6 +37,8 @@ const Signup = () => {
 
 
   let  formSubmit = (e)=>{
+
+
     
     e.preventDefault()
     const user = {
