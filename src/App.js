@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route,Routes } from 'react-router-dom';
-
+import {useState} from 'react'
 import './App.css';
 import Onboarding from './Pages/onboarding';
 import Login from './Pages/Login'
@@ -17,6 +17,19 @@ import Help from './Pages/Help'
 import AttendanceRegister from './Pages/AttendanceRegister'
 
 function App() {
+  const [currentLoggedUser,setCurrentLoggedUser] = useState('')
+
+
+  useEffect(() => {
+    fetch("https://zanbase-backend.herokuapp.com/auth")
+    .then(res =>{
+      if (res.ok){
+        res.json().then(user => setCurrentLoggedUser(user))
+      }
+    })
+    
+  }, [])
+  if(!currentLoggedUser) return <Login/>
 
 
   return (
