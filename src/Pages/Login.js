@@ -15,9 +15,9 @@ import { useNavigate } from 'react-router-dom'
 const Login = () => {
   const navigate = useNavigate()
 
-  const [usernameData,setUsernameData] = useState("")
-  const [passwordData,setPasswordData] = useState("")
-  const [errors,setErrors] = useState("")
+  const [usernameData,setUsernameData] = useState(" ")
+  const [passwordData,setPasswordData] = useState(" ")
+  const [errors,setErrors] = useState(" ")
 
 
   const handleSubmit = (e)=>{
