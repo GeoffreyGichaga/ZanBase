@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -15,6 +15,42 @@ import { useNavigate } from 'react-router-dom'
 const Login = () => {
   const navigate = useNavigate()
 
+  const [usernameData,setUsernameData] = useState("")
+  const [passwordData,setPasswordData] = useState("")
+  const [errors,setErrors] = useState("")
+
+
+  const handleSubmit = (e)=>{
+
+    e.preventDefault()
+
+    userInfo = {
+      usernameData,
+      passwordData
+      
+
+    }
+    fetch("https://zanbase-backend.herokuapp.com/login",{
+      method: "POST",
+      headers: 
+          {
+            'Content-Type':'application/json'
+          
+          },
+        body: JSON.stringify(userInfo)
+    })
+    .then(res => res.json())
+    .then(data=>{
+      if(data.status === 201){
+        navigate('/dashboard')
+      }
+      else{
+        setErrors(data.errors)
+        
+      }
+    })
+  }
+
 
   return (
     <>
@@ -29,7 +65,8 @@ const Login = () => {
 
       {/* Signup Form  */}
         <Col sm={12} md={6} lg={6} className='mt-5'>
-          <h3 className='signup-title'>Signup</h3>
+          <h3 className='signup-title'>Login</h3>
+          <p>{errors}</p>
           <Form>
 
             
@@ -38,16 +75,19 @@ const Login = () => {
 
             <Row className="mb-3 mt-5">
               <InputGroup as={Col} className=" mb-3">
-                  <InputGroup.Text id="emailinput">
+                  <InputGroup.Text id="usernameinput">
                     <img className='inputlogo' src={email} alt={"userimg"}/>
                   </InputGroup.Text>
 
                 <Form.Control
                   className='inputspace'
-                  placeholder="Email"
-                  aria-label="Email"
-                  aria-describedby="emailinput"
-                  type='email'
+                  placeholder="Username"
+                  aria-label="Username"
+                  aria-describedby="usernameinput"
+                  type='text'
+                  value={usernameData}
+                  onChange={setUsernameData}
+
                 />
               </InputGroup>
 
@@ -76,6 +116,8 @@ const Login = () => {
                   aria-label="Password"
                   aria-describedby="passwordinput"
                   type='password'
+                  value={passwordData}
+                  onChange={setPasswordData}
                 />
               </InputGroup>
 
@@ -90,7 +132,7 @@ const Login = () => {
             
             
 
-              <Button onClick={()=> navigate('/dashboard')} id='submitbtn' variant="primary" type="submit">
+              <Button onClick={handleSubmit} id='submitbtn' variant="primary" type="submit">
                 Submit
               </Button>
 

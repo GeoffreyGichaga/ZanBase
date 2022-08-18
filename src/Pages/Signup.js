@@ -30,7 +30,6 @@ const Signup = () => {
   const[supervisor,setSuperVisor] = useState("")
   const[password,setPassword] = useState("")
   const[confirmPassword,setConfirmPassword] = useState("")
-  const [currentUser, setCurrentUser] = useState("")
 
 
   let  formSubmit = (e)=>{
@@ -157,7 +156,7 @@ const Signup = () => {
                   aria-label="Username"
                   value = {username}
                   aria-describedby="usernameinput"
-                  type='email'
+                  type='text'
                   onChange={(e)=> setUsername(e.target.value)}
                 />
               </InputGroup>
