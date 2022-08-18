@@ -53,26 +53,58 @@ const Signup = () => {
       password
     }
 
-      fetch("https://zanbase-backend.herokuapp.com/users", 
-      {
-        method: "POST",
-        headers: 
-          {
-            'Content-Type':'application/json'
+      // fetch("https://zanbase-backend.herokuapp.com/users", 
+      // {
+      //   method: "POST",
+      //   headers: 
+      //     {
+      //       'Content-Type':'application/json'
           
-          },
-        body: JSON.stringify(user)
-      })
-      .then(res => {
-        if(res.created){
-          navigate('/dashboard')
-        }
+      //     },
+      //   body: JSON.stringify(user)
+      // })
+      // .then(res => {
+      //   if(res.created){
+      //     navigate('/dashboard')
+      //   }
   
-          else{
-            res.json().then( err => setErrors(Object.entries(err.error)))  
+      //     else{
+      //       res.json().then( err => setErrors(Object.entries(err.error)))  
+      //     }
+      //   }
+      // )
+
+
+      let formSubmit = async (e) => {
+
+        e.preventDefault();
+        try {
+          let res = await fetch("https://zanbase-backend.herokuapp.com/users", {
+            method: "POST",
+            body: JSON.stringify({
+              firstName: firstName,
+              lastname: lastname,
+              email: email,
+              username: username,
+              role: role,
+              supervisor: supervisor,
+              password:password
+            }),
+          });
+          let resJson = await res.json();
+          if (res.status === 201) {
+            navigate('/dashboard')
+            
+          } else {
+            setErrors(Object.entries(resJson.error))
+
+            
+            
           }
+        } catch (err) {
+          console.log(err);
         }
-      )
+      };
       
    
 
