@@ -34,6 +34,8 @@ const Signup = () => {
   const[supervisor,setSuperVisor] = useState("")
   const[password,setPassword] = useState("")
   const[confirmPassword,setConfirmPassword] = useState("")
+  const [errors,setErrors] = useState(" ")
+
 
 
   let  formSubmit = (e)=>{
@@ -98,6 +100,7 @@ const Signup = () => {
       {/* Signup Form  */}
         <Col sm={12} md={6} lg={6} className='mt-5'>
           <h3 className='signup-title'>Signup</h3>
+          <p>{errors}</p>
           <Form onSubmit={formSubmit}>
 
             <Row className="mb-3 mt-5">
