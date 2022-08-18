@@ -49,7 +49,6 @@ const Dashboard = () => {
     })
     
   }, [])
-  if(!currentLoggedUser) return <Login/>
 
 
   const displayTopTargets = allTargets.map((targs)=>(
