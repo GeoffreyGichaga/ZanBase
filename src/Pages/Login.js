@@ -34,16 +34,17 @@ const Login = () => {
           },
         body: JSON.stringify(usernameData,passwordData)
     })
-    .then(res => res.json())
-    .then(data=>{
-      if(data.status === 201){
+    .then(res => {
+      if(res.created){
         navigate('/dashboard')
       }
-      else{
-        setErrors(data.errors)
-        
+
+        else{
+          res.json().then( err => setErrors(Object.entries(err.error)))  
+        }
       }
-    })
+    )
+    
   }
 
 
