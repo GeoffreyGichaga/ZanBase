@@ -9,11 +9,13 @@ import bellnot from '../Assets/notification.png'
 import calendar from '../Assets/calendar.png'
 import CardGroup from 'react-bootstrap/CardGroup'
 import TutorialCards from '../Components/TutorialCards'
+import {useState,useEffect} from 'react'
 
 
 
 
-const Dashboard = ({user}) => {
+const Dashboard = () => {
+  const [currentLoggedUser,setCurrentLoggedUser] = useState('')
 
 
 
@@ -38,7 +40,17 @@ const Dashboard = ({user}) => {
 
   },[])
 
-  
+  useEffect(() => {
+    fetch("https://zanbase-backend.herokuapp.com/auth")
+    .then(res =>{
+      if (res.ok){
+        res.json().then(user => setCurrentLoggedUser(user))
+      }
+    })
+    
+  }, [])
+  if(!currentLoggedUser) return <Login/>
+
 
   const displayTopTargets = allTargets.map((targs)=>(
 
@@ -85,7 +97,7 @@ const Dashboard = ({user}) => {
                     <p className='fulldate ms-3'>{fullDate}</p>
                   </Card.Text>
                 </Card.Body>
-                <Card.Footer className='text-start'>Hello! {user} </Card.Footer>
+                <Card.Footer className='text-start'>Hello! {currentLoggedUser} </Card.Footer>
               </Card>
 
               <Card className='infocards mt-5 ms-lg-3'>
