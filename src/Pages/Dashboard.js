@@ -13,7 +13,7 @@ import TutorialCards from '../Components/TutorialCards'
 
 
 
-const Dashboard = () => {
+const Dashboard = ({user}) => {
 
 
 
@@ -85,7 +85,7 @@ const Dashboard = () => {
                     <p className='fulldate ms-3'>{fullDate}</p>
                   </Card.Text>
                 </Card.Body>
-                <Card.Footer className='text-start'>Hello! </Card.Footer>
+                <Card.Footer className='text-start'>Hello! {user} </Card.Footer>
               </Card>
 
               <Card className='infocards mt-5 ms-lg-3'>

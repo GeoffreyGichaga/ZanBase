@@ -15,8 +15,23 @@ import TargetsBoard from './Pages/TargetsBoard'
 import Tutorials from './Pages/Tutorials'
 import Help from './Pages/Help'
 import AttendanceRegister from './Pages/AttendanceRegister'
+import {useState,useEffect} from 'react'
 
 function App() {
+
+  const [currentLoggedUser,setCurrentLoggedUser] = useState('')
+
+  useEffect(() => {
+    fetch("https://zanbase-backend.herokuapp.com/auth")
+    .then(res =>{
+      if (res.ok){
+        res.json().then(user => setCurrentLoggedUser(user))
+      }
+    })
+    
+  }, [])
+  if(!currentLoggedUser) return <Login/>
+
   return (
     <div className="App">
       <Routes>
@@ -24,7 +39,7 @@ function App() {
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/cookies' element={<Cookies/>}/>
-        <Route path='/dashboard' element={<Dashboard/>}/>
+        <Route path='/dashboard' element={<Dashboard user={currentLoggedUser}/>}/>
         <Route path='/profile' element={<Profile/>}/>
         <Route path='/attendance-register' element={<AttendanceRegister/>}/>
         <Route path='/pv' element={<Pv/>}/>
