@@ -10,7 +10,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import user from '../Assets/user.png'
 import emailpic from '../Assets/email.png'
 import padlock from '../Assets/padlock.png'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 
 
 
@@ -20,7 +20,7 @@ import { useNavigate } from 'react-router-dom'
 
 const Signup = () => {
 
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
 
   
@@ -34,35 +34,52 @@ const Signup = () => {
   const[supervisor,setSuperVisor] = useState("")
   const[password,setPassword] = useState("")
   const[confirmPassword,setConfirmPassword] = useState("")
-  const [errors,setErrors] = useState(" ")
+  // const [errors,setErrors] = useState(" ")
 
 
 
-  // let  formSubmit = (e)=>{
+  let  formSubmit = (e)=>{
 
 
     
-    // e.preventDefault()
-    // const user = {
-    //   firstName,
-    //   lastname,
-    //   email,
-    //   username,
-    //   role,
-    //   supervisor,
-    //   password
-    // }
+    e.preventDefault()
+    const user = {
+      firstName,
+      lastname,
+      email,
+      username,
+      role,
+      supervisor,
+      password
+    }
 
-      // fetch("https://zanbase-backend.herokuapp.com/users", 
-      // {
-      //   method: "POST",
-      //   headers: 
-      //     {
-      //       'Content-Type':'application/json'
-          
-      //     },
-      //   body: JSON.stringify(user)
-      // })
+     
+
+      fetch("https://zanbase-backend.herokuapp.com/users", 
+      {
+        method: "POST",
+        mode: 'no-cors',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user)
+      })
+      .then(res => res.json())
+      .then(data => console.log(data))
+      .catch(e => {
+        console.log(e)
+      });
+
+
+
+      
+
+
+
+
+
+
       // .then(res => {
       //   if(res.created){
       //     navigate('/dashboard')
@@ -75,38 +92,58 @@ const Signup = () => {
       // )
 
 
-      let formSubmit = async (e) => {
 
 
-        e.preventDefault();
+
+      // let formSubmit = async (e) => {
+
+
+      //   e.preventDefault();
         
-        try {
-          let res = await fetch("https://zanbase-backend.herokuapp.com/users", {
-            method: "POST",
-            body: JSON.stringify({
-              firstName: firstName,
-              lastname: lastname,
-              email: email,
-              username: username,
-              role: role,
-              supervisor: supervisor,
-              password:password
-            }),
-          });
-          let resJson = await res.json();
-          if (res.status === 201) {
-            navigate('/dashboard')
+      //   try {
+      //     let res = await fetch("https://zanbase-backend.herokuapp.com/users", {
+      //       method: "POST",
+      //       mode: 'no-cors',
+      //       headers: {
+      //         'Accept': 'application/json',
+      //         'Content-Type': 'application/json'
+      //       },
+      //       body: JSON.stringify({
+      //         firstName: firstName,
+      //         lastname: lastname,
+      //         email: email,
+      //         username: username,
+      //         role: role,
+      //         supervisor: supervisor,
+      //         password:password
+      //       }),
+      //     });
+      //     let resJson = await res.json();
+
+      //     if (res.status === 201)
+      //     {
+      //       console.log(resJson)
+      //     }else {
+      //       console.log(Object.entries(resJson.error))
+              // setErrors(Object.entries(resJson.error))
+  
+              
+              
+            // }
+          
+          // if (res.status === 201) {
+          //   navigate('/dashboard')
             
-          } else {
-            setErrors(Object.entries(resJson.error))
+          // } else {
+          //   setErrors(Object.entries(resJson.error))
 
             
             
-          }
-        } catch (err) {
-          console.log(err);
-        }
-      };
+          // }
+      //   } catch (err) {
+      //     console.log(err);
+      //   }
+      // };
       
    
 
@@ -116,7 +153,7 @@ const Signup = () => {
 
 
     
-  // };
+  };
 
 
   
@@ -134,7 +171,7 @@ const Signup = () => {
       {/* Signup Form  */}
         <Col sm={12} md={6} lg={6} className='mt-5'>
           <h3 className='signup-title'>Signup</h3>
-          <p>{errors}</p>
+          {/* <p>{errors}</p> */}
           <Form onSubmit={formSubmit}>
 
             <Row className="mb-3 mt-5">
