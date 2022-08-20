@@ -50,13 +50,11 @@ const Signup = () => {
       username,
       role,
       supervisor,
-      password
-    }
+      password }
 
      
 
-      fetch("https://zanbase-backend.herokuapp.com/users", 
-      {
+      fetch("https://zanbase-backend.herokuapp.com/users",{
         method: "POST",
         mode: 'no-cors',
         headers: {
@@ -65,11 +63,9 @@ const Signup = () => {
         },
         body: JSON.stringify(user)
       })
-      .then(res => res.json())
-      .then(data => console.log(data))
-      .catch(e => {
-        console.log(e)
-      });
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+     
 
 
 
