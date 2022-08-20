@@ -26,7 +26,7 @@ const Signup = () => {
   
 
 
-  const[firstName,setFirstName] = useState("")
+  const[firstname,setFirstName] = useState("")
   const[lastname,setLastName] = useState("")
   const [username,setUsername] = useState("")
   const[email,setEmail] = useState("")
@@ -44,7 +44,7 @@ const Signup = () => {
     
     e.preventDefault();
     const user = {
-      firstName: firstName,
+      firstname: firstname,
       lastname: lastname,
       email: email,
       username: username,
@@ -188,7 +188,7 @@ const Signup = () => {
                 className='inputspace'
                   placeholder="FirstName"
                   aria-label="FirstName"
-                  value ={firstName}
+                  value ={firstname}
                   aria-describedby="usernameinput"
                   onChange={(e)=> setFirstName(e.target.value)}
                 />
