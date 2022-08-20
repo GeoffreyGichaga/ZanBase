@@ -57,7 +57,7 @@ const Signup = () => {
 
       fetch("https://zanbase-backend.herokuapp.com/users",{
         method: "POST",
-        mode: 'no-cors',
+        mode: 'cors',
         cache: 'no-cache',
         headers: {
           'Content-Type': 'application/json'
