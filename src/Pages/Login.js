@@ -27,12 +27,14 @@ const Login = () => {
   
     fetch("https://zanbase-backend.herokuapp.com/login",{
       method: "POST",
+      mode: 'no-cors',
+      cache: 'no-cache',
       headers: 
           {
             'Content-Type':'application/json'
           
           },
-        body: JSON.stringify(username,password)
+      body: JSON.stringify(username,password)
     })
     .then(res => {
       if(res.status === "created"){
