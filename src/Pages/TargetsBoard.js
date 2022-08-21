@@ -30,8 +30,10 @@ const Task = () => {
             description
         }
 
-        fetch('/targets',{
+        fetch('https://zanbase-backend.herokuapp.com/targets',{
             method: "POST",
+            mode: 'no-cors',
+            cache: 'no-cache',
             headers:{'Content-Type':'application/json'},
             body: JSON.stringify(data)
         })
@@ -44,11 +46,15 @@ const Task = () => {
 
     useEffect(()=>{
 
-        fetch('/targets')
+        fetch('https://zanbase-backend.herokuapp.com/targets')
         .then(res => res.json())
         .then(data => setNewTargets(data))
+        .catch((error) => {
+            console.error('Error:', error);
+          });
 
     },[])
+    
 
 
     const displayTargets = newTargets.map((targs)=>(

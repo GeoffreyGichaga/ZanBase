@@ -14,6 +14,13 @@ import user from '../Assets/user.png'
 
 const Profile = () => {
 
+    // const []
+    // t.string "name_on_aacount"
+    // t.string "bank_name"
+    // t.string "account_number"
+    // t.string "bank_code"
+    // t.string "branch_code"
+    // t.string "telephone_number"
 
 
   return (

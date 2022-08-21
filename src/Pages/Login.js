@@ -15,8 +15,8 @@ import { useNavigate } from 'react-router-dom'
 const Login = () => {
   const navigate = useNavigate()
 
-  const [usernameData,setUsernameData] = useState(" ")
-  const [passwordData,setPasswordData] = useState(" ")
+  const [username,setUsername] = useState(" ")
+  const [password,setPassword] = useState(" ")
   const [errors,setErrors] = useState(" ")
 
 
@@ -32,10 +32,10 @@ const Login = () => {
             'Content-Type':'application/json'
           
           },
-        body: JSON.stringify(usernameData,passwordData)
+        body: JSON.stringify(username,password)
     })
     .then(res => {
-      if(res.created){
+      if(res.status === "created"){
         navigate('/dashboard')
       }
 
@@ -81,8 +81,8 @@ const Login = () => {
                   aria-label="Username"
                   aria-describedby="usernameinput"
                   type='text'
-                  value={usernameData}
-                  onChange={(e) => setUsernameData(e.target.value)}
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
 
                 />
               </InputGroup>
@@ -112,8 +112,8 @@ const Login = () => {
                   aria-label="Password"
                   aria-describedby="passwordinput"
                   type='password'
-                  value={passwordData}
-                  onChange={(e) => setPasswordData(e.target.value)}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </InputGroup>
 
