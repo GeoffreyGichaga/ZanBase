@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2022_08_17_134508) do
   end
 
   create_table "user_details", force: :cascade do |t|
-    t.string "name_on_aacount"
+    t.string "name_on_account"
     t.string "bank_name"
     t.string "account_number"
     t.string "bank_code"
