@@ -10,7 +10,8 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import user from '../Assets/user.png'
 import emailpic from '../Assets/email.png'
 import padlock from '../Assets/padlock.png'
-// import { useNavigate } from 'react-router-dom'
+import UserContext from '../Components/UserContext'
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -20,7 +21,7 @@ import padlock from '../Assets/padlock.png'
 
 const Signup = () => {
 
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
 
 
   
@@ -34,11 +35,14 @@ const Signup = () => {
   const[supervisor,setSuperVisor] = useState("")
   const[password,setPassword] = useState("")
   const[confirmPassword,setConfirmPassword] = useState("")
-  // const [errors,setErrors] = useState(" ")
+  const [errors,setErrors] = useState("")
+  const [currentUser,setCurrentUser] = useState(UserContext)
+
 
 
 
   let  formSubmit = (e)=>{
+
 
 
     
@@ -64,100 +68,24 @@ const Signup = () => {
         },
         body: JSON.stringify(user)
       })
-      .then((res) => res.json())
-      .then((data) => {
-      
-        console.log('Success:', data);
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
+      .then((resJson) => resJson.json())
+
+    .then((res) => {
+      if(res.status === "created"){
+        setCurrentUser(res.summary)
+        navigate('/dashboard')
+        console.log(currentUser);
+      }
+        else{
+          res.json().then( err => setErrors(Object.entries(err.error)))  
+        }
+      }
+    )
      
   };
 
 
 
-
-      
-
-
-
-
-
-
-      // .then(res => {
-      //   if(res.created){
-      //     navigate('/dashboard')
-      //   }
-  
-      //     else{
-      //       res.json().then( err => setErrors(Object.entries(err.error)))  
-      //     }
-      //   }
-      // )
-
-
-
-
-
-      // let formSubmit = async (e) => {
-
-
-      //   e.preventDefault();
-        
-      //   try {
-      //     let res = await fetch("https://zanbase-backend.herokuapp.com/users", {
-      //       method: "POST",
-      //       mode: 'no-cors',
-      //       headers: {
-      //         'Accept': 'application/json',
-      //         'Content-Type': 'application/json'
-      //       },
-      //       body: JSON.stringify({
-      //         firstName: firstName,
-      //         lastname: lastname,
-      //         email: email,
-      //         username: username,
-      //         role: role,
-      //         supervisor: supervisor,
-      //         password:password
-      //       }),
-      //     });
-      //     let resJson = await res.json();
-
-      //     if (res.status === 201)
-      //     {
-      //       console.log(resJson)
-      //     }else {
-      //       console.log(Object.entries(resJson.error))
-      //         setErrors(Object.entries(resJson.error))
-  
-              
-              
-      //       }
-          
-      //     if (res.status === 201) {
-      //       navigate('/dashboard')
-            
-      //     } else {
-      //       setErrors(Object.entries(resJson.error))
-
-            
-            
-      //     }
-      //   } catch (err) {
-      //     console.log(err);
-      //   }
-      // };
-      
-   
-
-  
-    
-  
-
-
-    
 
 
   
@@ -175,7 +103,7 @@ const Signup = () => {
       {/* Signup Form  */}
         <Col sm={12} md={6} lg={6} className='mt-5'>
           <h3 className='signup-title'>Signup</h3>
-          {/* <p>{errors}</p> */}
+          <p>{errors}</p>
           <Form onSubmit={formSubmit}>
 
             <Row className="mb-3 mt-5">
