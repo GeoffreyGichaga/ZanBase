@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Route,Routes } from 'react-router-dom';
-// import {useState, useEffect} from 'react'
+import {useEffect} from 'react'
 import './App.css';
 import Onboarding from './Pages/onboarding';
 import Login from './Pages/Login'
@@ -18,23 +18,23 @@ import AttendanceRegister from './Pages/AttendanceRegister'
 import UserContext from './Components/UserContext';
 
 function App() {
-  const [currentUser,setCurrentUser] = useState(" ")
+  const [currentUser,setCurrentUser] = useState(null)
   // const [currentLoggedUser,setCurrentLoggedUser] = useState('')
 
 
-  // useEffect(() => {
-  //   fetch("https://zanbase-backend.herokuapp.com/auth")
-    // .then(res =>{
-    //   if (res.ok){
-    //     res.json().then(user => setCurrentLoggedUser(user))
-    //   }
-    // })
+  useEffect(() => {
+    fetch("https://zanbase-backend.herokuapp.com/auth")
+    .then(res =>{
+      if (res.ok){
+        res.json().then(user => setCurrentUser(user))
+      }
+    })
 
-  //   .then(res => res.json())
-  //   .then(data => console.log(data))
+    .then(res => res.json())
+    .then(data => console.log(data))
     
-  // }, [])
-  // if(!currentLoggedUser) return <Login/>
+  }, [])
+  if(!currentUser) return <Login/>
 
 
   return (

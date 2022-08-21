@@ -11,13 +11,16 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import email from '../Assets/email.png'
 import padlock from '../Assets/padlock.png'
 import { useNavigate } from 'react-router-dom'
+import UserContext from '../Components/UserContext'
 
 const Login = () => {
   const navigate = useNavigate()
 
-  const [username,setUsername] = useState(" ")
-  const [password,setPassword] = useState(" ")
-  const [errors,setErrors] = useState(" ")
+  const [username,setUsername] = useState("")
+  const [password,setPassword] = useState("")
+  const [errors,setErrors] = useState("")
+
+  const [currentUser,setCurrentUser] = useState(UserContext)
 
 
   const handleSubmit = (e)=>{
@@ -36,11 +39,14 @@ const Login = () => {
           },
       body: JSON.stringify(username,password)
     })
-    .then(res => {
-      if(res.status === "created"){
-        navigate('/dashboard')
-      }
+    .then((resJson) => resJson.json())
 
+    .then((res) => {
+      if(res.status === "created"){
+        setCurrentUser(res.summary)
+        navigate('/dashboard')
+        console.log(currentUser);
+      }
         else{
           res.json().then( err => setErrors(Object.entries(err.error)))  
         }

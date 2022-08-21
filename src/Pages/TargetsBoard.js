@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -39,21 +39,29 @@ const Task = () => {
         })
         .then(res=> res.json())
         .then(data2=> console.log(data2))
+
+
+        setTitle("")
+        setDescription("")
+
+        refreshNewTargets()
           
     }
 
     const [newTargets,setNewTargets] = useState([])
 
-    useEffect(()=>{
+    function refreshNewTargets(){
+        
+        setInterval(function(){
+            fetch('https://zanbase-backend.herokuapp.com/targets')
+            .then(res => res.json())
+            .then(data => setNewTargets(data))
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }, 2000)
 
-        fetch('https://zanbase-backend.herokuapp.com/targets')
-        .then(res => res.json())
-        .then(data => setNewTargets(data))
-        .catch((error) => {
-            console.error('Error:', error);
-          });
-
-    },[])
+    }
     
 
 

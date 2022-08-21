@@ -22,7 +22,7 @@ const Profile = () =>
     const [branch_code,setBranchcode] = useState("")
     const [telephone_number,setTelephoneNumber] = useState("")
 
-    const handleSubmit = (e)=>{
+    const handleSubmit = (e)=> {
         e.preventDefault()
 
         const profileDetails = {
@@ -44,6 +44,15 @@ const Profile = () =>
         })
         .then(res => res.json())
         .then(data => console.log(data))
+
+
+        setNameOnAccount("")
+        setBankName("")
+        setAccountNumber("")
+        setBankCode("")
+        setBranchcode("")
+        setTelephoneNumber("")
+    }
 
    
 
