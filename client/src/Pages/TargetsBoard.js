@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -30,25 +30,39 @@ const Task = () => {
             description
         }
 
-        fetch('/targets',{
+        fetch('https://zanbase-backend.herokuapp.com/targets',{
             method: "POST",
+            mode: 'no-cors',
+            cache: 'no-cache',
             headers:{'Content-Type':'application/json'},
             body: JSON.stringify(data)
         })
         .then(res=> res.json())
         .then(data2=> console.log(data2))
+
+
+        setTitle("")
+        setDescription("")
+
+        refreshNewTargets()
           
     }
 
     const [newTargets,setNewTargets] = useState([])
 
-    useEffect(()=>{
+    function refreshNewTargets(){
+        
+        setInterval(function(){
+            fetch('https://zanbase-backend.herokuapp.com/targets')
+            .then(res => res.json())
+            .then(data => setNewTargets(data))
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }, 2000)
 
-        fetch('/targets')
-        .then(res => res.json())
-        .then(data => setNewTargets(data))
-
-    },[])
+    }
+    
 
 
     const displayTargets = newTargets.map((targs)=>(
@@ -98,7 +112,8 @@ const Task = () => {
                     <Accordion.Body>
                     <Form onSubmit={handleSubmit}>
                         <Form.Group className="targetinput mb-3" controlId="formBasicEmail">
-                            <Form.Control onChange={(e)=> setTitle(e.target.value)} type="text" value={title} placeholder="Enter title" />
+                            <Form.Label>Enter Tittle</Form.Label>
+                            <Form.Control onChange={(e)=> setTitle(e.target.value)} type="text" value={title} placeholder= "Enter title" />
                             
                         </Form.Group>
 
@@ -106,6 +121,8 @@ const Task = () => {
 
 
                         <Form.Group className="targetinput mb-3" controlId="exampleForm.ControlTextarea1">
+                        <Form.Label>Enter Description</Form.Label>
+
                             <Form.Control value={description} onChange={(e)=> setDescription(e.target.value)} placeholder='Description' as="textarea" rows={3} />
                         </Form.Group>
 

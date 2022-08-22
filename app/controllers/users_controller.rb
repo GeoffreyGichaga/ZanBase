@@ -1,18 +1,23 @@
 class UsersController < ApplicationController
     wrap_parameters format: []
     rescue_from ActiveRecord::RecordInvalid,with: :render_unprocessable_entity
-    
+    skip_before_action :authorized_user, only: :create
+
     
     def create
-        user = User.create!(user_params)
-        render json: user ,status: :created, serializer: UserinfoSerializer
+        user = User.create(user_params)
+        session[:user_id] = user.id
+
+        render json: user , status: :created
 
     end 
 
-    def update
-        user = user.update!(user_updates_params)
-        render json: user, status: :created
+    def show
+        current_logged_user = User.find(session[:user_id])
+        render json: current_logged_user, status: :ok
     end 
+
+     
 
   
 
@@ -24,9 +29,7 @@ class UsersController < ApplicationController
         params.permit(:firstname,:lastname,:email,:username,:role,:supervisor,:password)
     end 
 
-    def user_updates_params
-        params.permit(:name_on_account,:bank_name,:account_number,:bank_code,:branch_code,:telephone_number)
-    end 
+   
 
     def render_unprocessable_entity(invalid)
         render json: {error: invalid.record.errors}, status: :unprocessable_entity

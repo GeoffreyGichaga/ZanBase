@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -11,9 +11,49 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import email from '../Assets/email.png'
 import padlock from '../Assets/padlock.png'
 import { useNavigate } from 'react-router-dom'
+import UserContext from '../Components/UserContext'
 
 const Login = () => {
   const navigate = useNavigate()
+
+  const [username,setUsername] = useState("")
+  const [password,setPassword] = useState("")
+  const [errors,setErrors] = useState("")
+
+  const [currentUser,setCurrentUser] = useState(UserContext)
+
+
+  const handleSubmit = (e)=>{
+
+    e.preventDefault()
+
+  
+    fetch("https://zanbase-backend.herokuapp.com/login",{
+      method: "POST",
+      mode: 'no-cors',
+      cache: 'no-cache',
+      headers: 
+          {
+            'Content-Type':'application/json'
+          
+          },
+      body: JSON.stringify(username,password)
+    })
+    .then((resJson) => resJson.json())
+
+    .then((res) => {
+      if(res.status === "created"){
+        setCurrentUser(res.summary)
+        navigate('/dashboard')
+        console.log(currentUser);
+      }
+        else{
+          res.json().then( err => setErrors(Object.entries(err.error)))  
+        }
+      }
+    )
+    
+  }
 
 
   return (
@@ -29,7 +69,8 @@ const Login = () => {
 
       {/* Signup Form  */}
         <Col sm={12} md={6} lg={6} className='mt-5'>
-          <h3 className='signup-title'>Signup</h3>
+          <h3 className='signup-title'>Login</h3>
+          <p>{errors}</p>
           <Form>
 
             
@@ -38,16 +79,19 @@ const Login = () => {
 
             <Row className="mb-3 mt-5">
               <InputGroup as={Col} className=" mb-3">
-                  <InputGroup.Text id="emailinput">
+                  <InputGroup.Text id="usernameinput">
                     <img className='inputlogo' src={email} alt={"userimg"}/>
                   </InputGroup.Text>
 
                 <Form.Control
                   className='inputspace'
-                  placeholder="Email"
-                  aria-label="Email"
-                  aria-describedby="emailinput"
-                  type='email'
+                  placeholder="Username"
+                  aria-label="Username"
+                  aria-describedby="usernameinput"
+                  type='text'
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+
                 />
               </InputGroup>
 
@@ -76,6 +120,8 @@ const Login = () => {
                   aria-label="Password"
                   aria-describedby="passwordinput"
                   type='password'
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </InputGroup>
 
@@ -90,7 +136,7 @@ const Login = () => {
             
             
 
-              <Button onClick={()=> navigate('/dashboard')} id='submitbtn' variant="primary" type="submit">
+              <Button onClick={handleSubmit} id='submitbtn' variant="primary" type="submit">
                 Submit
               </Button>
 

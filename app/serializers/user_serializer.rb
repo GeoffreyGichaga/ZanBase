@@ -1,4 +1,8 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :summary
+
+  def summary
+    "#{self.object.firstname} #{self.object.lastname}"
+  end
   
 end

@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from 'react'
+import React,{ useState} from 'react'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -38,7 +38,7 @@ const AttendanceRegister = () => {
                  checkedBy
              }
 
-             fetch('/attendances',{
+             fetch('https://zanbase-backend.herokuapp.com/attendances',{
                 method: "POST",
                 headers:{'Content-Type':'application/json'},
                 body: JSON.stringify(attendanceData)
@@ -54,16 +54,21 @@ const AttendanceRegister = () => {
             setActivities(' ')
             setSign('')
             setCheckedBy('')
+            refreshAttendance()
             
         }
 
 
-        useEffect(()=>{
-            fetch('/attendances')
-            .then(res => res.json())
-            .then(resdata => setSubmittedData(resdata))
+        function refreshAttendance(){
+            
+            setInterval(function(){
+                fetch('https://zanbase-backend.herokuapp.com/attendances')
+                .then(res => res.json())
+                .then(resdata => setSubmittedData(resdata))
+            }, 2000)
+        }            
+        
 
-        },[])
 
         const displayNewAttendanceData = submittedData.map((sd)=>(
             <tr>

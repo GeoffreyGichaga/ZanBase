@@ -15,6 +15,8 @@ import TutorialCards from '../Components/TutorialCards'
 
 const Dashboard = () => {
 
+
+
   const week = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
   const current = new Date()
   const day = current.getDay()
@@ -25,17 +27,19 @@ const Dashboard = () => {
   const displayDay = week[day]
   const fullDate = `${date} / ${month}/ ${year}`
 
-  const [Targets,setTargets] = useState([])
 
-  useEffect(()=>{
+  const [allTargets,setAllTargets] = useState([])
 
-    fetch('/targets')
+  useEffect(() => {
+    
+    fetch("https://zanbase-backend.herokuapp.com/targets")
     .then(res => res.json())
-    .then(data => setTargets(data))
+    .then(data => setAllTargets(data))
 
   },[])
 
-  const displayTopTargets = Targets.map((targs)=>(
+  
+  const displayTopTargets = allTargets.map((targs)=>(
 
         <Card id='toptargetscard1' className='p-2'>
             <Card.Body>
@@ -80,6 +84,7 @@ const Dashboard = () => {
                     <p className='fulldate ms-3'>{fullDate}</p>
                   </Card.Text>
                 </Card.Body>
+                <Card.Footer className='text-start'>Hello! </Card.Footer>
               </Card>
 
               <Card className='infocards mt-5 ms-lg-3'>

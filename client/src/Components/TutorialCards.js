@@ -11,7 +11,7 @@ const TutorialCards = () => {
   const [Tutorials,setTutorials] = useState([])
 
   useEffect(()=>{
-    fetch('/tutorials')
+    fetch('https://zanbase-backend.herokuapp.com/tutorials')
     .then(res=> res.json())
     .then(data=> setTutorials(data))
     
