@@ -1,3 +1,8 @@
 class UserDetailSerializer < ActiveModel::Serializer
-  attributes :id, :name_on_aacount, :bank_name, :account_number, :bank_code, :branch_code, :telephone_number
+  attributes :info_response
+
+
+  def info_response
+    render json: {message: "You have Successfuly added your profile info"}, status: :created
+  end 
 end

@@ -1,7 +1,8 @@
 class UserDetailsController < ApplicationController
 
     def create
-        user = UserDetail.create!(user_payment_details_params)
+        current_user = User.find(session[:user_id])
+        user = current_user.UserDetail.create!(user_payment_details_params)
         render json: user, status: :created
     end
 
