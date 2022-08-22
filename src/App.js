@@ -19,7 +19,6 @@ import UserContext from './Components/UserContext';
 
 function App() {
   const [currentUser,setCurrentUser] = useState(null)
-  // const [currentLoggedUser,setCurrentLoggedUser] = useState('')
 
 
   useEffect(() => {
@@ -34,7 +33,7 @@ function App() {
     .then(data => console.log(data))
     
   }, [])
-  if(!currentUser) return <Login/>
+  // if(!currentUser) return <Login/>
 
 
   return (
